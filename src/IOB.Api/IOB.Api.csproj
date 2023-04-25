@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IOB.Application\IOB.Application.csproj" />
+    <ProjectReference Include="..\IOB.Correios\IOB.Correios.csproj" />
     <ProjectReference Include="..\IOB.Domain\IOB.Domain.csproj" />
     <ProjectReference Include="..\IOB.Infra\IOB.Infra.csproj" />
   </ItemGroup>

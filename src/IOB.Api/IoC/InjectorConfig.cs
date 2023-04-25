@@ -1,4 +1,7 @@
-﻿using IOB.Domain.Interfaces.Repositories;
+﻿using IOB.Application.Interfaces.Services;
+using IOB.Correios.IoC;
+using IOB.Correios.Services;
+using IOB.Domain.Interfaces.Repositories;
 using IOB.Domain.Interfaces.Services;
 using IOB.Domain.Services;
 using IOB.Infra.Context;
@@ -13,11 +16,14 @@ public static class InjectorConfig
     {
         services.AddDbContext<IobContext>(options =>
               options.UseSqlServer(configuration.GetConnectionString("IobConnection"))
-          );               
-        
+          );
+
+        InjectorCorreiosConfig.AddCorreiosRegisterServices(services);
+
         services.AddScoped<ICompromissoService, CompromissoService>();
         services.AddScoped<IContatoService, ContatoService>();
+        services.AddScoped<ICorreiosService, CorreiosService>();
         services.AddScoped<IContatoRepository, ContatoRepository>();
-        services.AddScoped<ICompromissoRepository, CompromissoRepository>();
+        services.AddScoped<ICompromissoRepository, CompromissoRepository>();                
     }
 }
