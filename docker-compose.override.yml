@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  iob.db:
+    container_name: iob-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=senha@1234    
+    ports:
+      - 4001:1433
+    volumes:
+     - iob_data:/var/opt/mssql
+  
+  iob.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "4002:80"
+    depends_on:
+      - iob.db

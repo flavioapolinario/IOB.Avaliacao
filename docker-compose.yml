@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  iob.db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+  iob.api:
+    image: ${DOCKER_REGISTRY-}iobapi
+    build:
+      context: .
+      dockerfile: src/IOB.Api/Dockerfile
+
+volumes:
+  iob_data:
