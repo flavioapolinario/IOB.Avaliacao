@@ -15,15 +15,14 @@ public class ContatoMap : IEntityTypeConfiguration<Contato>
 
         builder.Property(p => p.Nome)
             .HasMaxLength(100)
-            .IsRequired()
-            .IsUnicode(false);
+            .IsRequired();
 
         builder.Property(p => p.Telefone)
-            .HasMaxLength(10)
+            .HasMaxLength(20)
             .IsRequired(false);
-
+        
         builder.Property(p => p.Celular)
-            .HasMaxLength(200)
+            .HasMaxLength(20)
             .IsRequired();
 
         builder.Property(p => p.Email)

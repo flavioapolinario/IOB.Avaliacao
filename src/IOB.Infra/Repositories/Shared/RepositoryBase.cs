@@ -13,7 +13,7 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
         Context = dataContext;
 
     public virtual async Task<IEnumerable<TEntity>> ObterTodosAsync() =>
-        await Context.Set<TEntity>()
+        await Context.Set<TEntity>()            
             .AsNoTracking()
             .ToListAsync();
 
