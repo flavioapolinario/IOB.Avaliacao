@@ -17,6 +17,16 @@
     <div class="col mb-3">
         <a asp-controller="Contato" asp-action="Create" class="btn btn-lg btn-primary"><i class="bi bi-file-plus-fill"></i>Adicionar Contato</a>
     </div>
+    <form asp-controller="Contato" asp-action="Index">
+        <div class="row">
+            <div class="col-md-9 mb-3">
+                <input type="text" class="form-control mb-3" name="filtro" placeholder="Procurar..." />
+            </div>
+            <div class="col-md-3 mb-3">
+                <input type="submit" class="btn btn-md btn-primary" value="Pesquisar" />
+            </div>
+        </div>
+    </form>
     <table class="table table-hover">
         <thead>
             <tr>

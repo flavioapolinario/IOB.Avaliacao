@@ -17,6 +17,19 @@
     <div class="col mb-3">
         <a asp-controller="Compromisso" asp-action="Create" class="btn btn-lg btn-primary"><i class="bi bi-file-plus-fill"></i>Adicionar Compromisso</a>
     </div>
+    <form asp-controller="Compromisso" asp-action="Index">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <input type="text" class="form-control mb-3" name="filtro" placeholder="Procurar..." />
+            </div>
+            <div class="col-md-4 mb-3">
+                <input type="date" class="form-control mb-3" name="dataCompromisso" placeholder="Data Compromisso..." />
+            </div>
+            <div class="col-md-4 mb-3">
+                <input type="submit" class="btn btn-md btn-primary" value="Pesquisar" />
+            </div>
+        </div>      
+    </form>
     <table class="table table-hover">
         <thead>
             <tr>
