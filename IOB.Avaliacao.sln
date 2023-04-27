@@ -21,7 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOB.Infra.Test", "test\IOB.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOB.Correios", "src\IOB.Correios\IOB.Correios.csproj", "{71CD9210-032F-4AC0-89CF-136C46FF7E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOB.WebApp", "src\IOB.WebApp\IOB.WebApp.csproj", "{2980A296-05B3-433F-A969-CFF92EE905E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOB.WebApp", "src\IOB.WebApp\IOB.WebApp.csproj", "{2980A296-05B3-433F-A969-CFF92EE905E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A3BA6670-AD14-4B47-8B8E-B7C7419ED6B0}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\IOB-Database.sql = scripts\IOB-Database.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
