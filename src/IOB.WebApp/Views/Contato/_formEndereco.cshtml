@@ -1,0 +1,70 @@
+﻿@model EnderecoModel
+
+<div class="row">
+    <div class="col-md-4">
+        <label asp-for="Cep">Cep</label>
+        <input type="text" class="form-control mb-3" asp-for="Cep" onblur="ObterEnderecoPorCep(this.value)" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Cep" class=" alert-danger"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label asp-for="Cidade">Cidade</label>
+        <input type="text" class="form-control mb-3" asp-for="Cidade" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Cidade" class=" alert-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Estado">Estado</label>
+        <select asp-for="Estado" class="form-select" asp-items="@ViewBag.Estados" disabled="@ViewBag.Desabilitar"></select>
+        <span asp-validation-for="Estado" class=" alert-danger"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class=" col-md-3">
+        <label asp-for="Logradouro">Logradouro</label>
+        <input type="text" class="form-control mb-3" asp-for="Logradouro" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Logradouro" class=" alert-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Bairro">Bairro</label>
+        <input type="text" class="form-control mb-3" asp-for="Bairro" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Bairro" class=" alert-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Numero">Numero</label>
+        <input type="text" class="form-control mb-3" asp-for="Numero" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Numero" class=" alert-danger"></span>
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Complemento">Complemento</label>
+        <input type="text" class="form-control mb-3" asp-for="Complemento" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Complemento" class=" alert-danger"></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function ObterEnderecoPorCep(cep) {
+        $.ajax({
+            url: "/Contato/ObterEnderecoPorCep",
+            type: 'GET',
+            data: { "cep": cep },
+            success: function (result) {
+
+                if (result) {
+                    
+                    document.getElementById("Endereco_Cidade").value = result.cidade;
+                    document.getElementById("Endereco_Estado").value = result.estado;
+                    document.getElementById("Endereco_Logradouro").value = result.logradouro;
+                    document.getElementById("Endereco_Bairro").value = result.bairro;
+                    document.getElementById("Endereco_Complemento").value = result.complemento;
+                }
+            },
+            error: function () {
+                alert('Erro ao buscar endereço!');
+            }
+        });
+    }
+</script>

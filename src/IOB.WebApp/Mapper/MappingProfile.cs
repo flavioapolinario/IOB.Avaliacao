@@ -19,23 +19,14 @@ public class MappingProfile : Profile
         CreateMap<ContatoModel, Contato>();
         CreateMap<EnderecoModel, Endereco>();
         CreateMap<CompromissoModel, Compromisso>();
-
-        //CreateMap<Compromisso, AtualizaCompromissoRequest>();
-        //CreateMap<Endereco, InsereEnderecoRequest>();
-        //CreateMap<Endereco, AtualizaEnderecoRequest>();
-
-        //CreateMap<InsereContatoRequest, Contato>();
-        //CreateMap<AtualizaContatoRequest, Contato>();
-        //CreateMap<InsereCompromissoRequest, Compromisso>();
-        //CreateMap<AtualizaCompromissoRequest, Compromisso>();
-        //CreateMap<InsereEnderecoRequest, Endereco>();
-        //CreateMap<AtualizaEnderecoRequest, Endereco>();
-
+        
         // Response
         CreateMap<Contato, ContatoResponse>();
+        CreateMap<Endereco, EnderecoResponse>();
         CreateMap<Compromisso, CompromissoResponse>();
 
         CreateMap<ContatoResponse, Contato>();
+        CreateMap<EnderecoResponse, Endereco>();
         CreateMap<CompromissoResponse, Compromisso>();
     }
 }

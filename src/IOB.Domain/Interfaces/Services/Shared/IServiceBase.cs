@@ -4,6 +4,9 @@ namespace IOB.Domain.Interfaces.Services.Shared;
 
 public interface IServiceBase<TEntity> : IDisposable where TEntity : Entidade
 {
+    Task<IEnumerable<TEntity>> ObterPorFiltroAsync(System.Linq.Expressions.Expression<Func<TEntity, bool>>? filter = null,
+                            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+                            string includeProperties = "");
     Task<IEnumerable<TEntity>> ObterTodosAsync();
     Task<TEntity?> ObterPorIdAsync(int id);
     Task<object> AdicionarAsync(TEntity objeto);

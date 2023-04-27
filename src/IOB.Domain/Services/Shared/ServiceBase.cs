@@ -1,6 +1,7 @@
 ﻿using IOB.Domain.Entidades.Shared;
 using IOB.Domain.Interfaces.Repositories.Shared;
 using IOB.Domain.Interfaces.Services.Shared;
+using System.Linq.Expressions;
 
 namespace IOB.Domain.Services.Shared;
 public abstract class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : Entidade
@@ -30,4 +31,10 @@ public abstract class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity
 
     public void Dispose() =>
         _repositoryBase.Dispose();
+
+    public virtual async Task<IEnumerable<TEntity>> ObterPorFiltroAsync(
+        Expression<Func<TEntity, bool>>? filter = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+        string includeProperties = "") =>
+        await _repositoryBase.ObterPorFiltroAsync(filter, orderBy, includeProperties);
 }

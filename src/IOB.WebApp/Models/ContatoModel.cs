@@ -7,25 +7,25 @@ public class ContatoModel
     [Key]
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "Campo Obrigatorio")]
+    [Required(ErrorMessage = "Nome é obrigatorio")]
     [Display(Name = "Nome")]
     public string Nome { get; set; }
 
-    [Display(Name = "Telefone")]    
-    public string Telefone { get; set; }
+    [Display(Name = "Telefone")]
+    public string? Telefone { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Celular é obrigatorio")]
     [Display(Name = "Celular")]
     public string Celular { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Email é obrigatorio")]
     [Display(Name = "Email")]
     public string Email { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Data Nascimento é obrigatoria")]
     [Display(Name = "Data Nascimento")]
     public DateTime DataNascimento { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Endereço é obrigatorio")]
     public EnderecoModel Endereco { get; set; }
 }
