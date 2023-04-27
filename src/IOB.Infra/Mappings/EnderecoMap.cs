@@ -15,15 +15,14 @@ public class EnderecoMap : IEntityTypeConfiguration<Endereco>
 
         builder.Property(p => p.Logradouro)
             .HasMaxLength(200)
-            .IsRequired()
-            .IsUnicode(false);
+            .IsRequired();
 
         builder.Property(p => p.Numero)
             .HasMaxLength(10)
             .IsRequired(false);
 
         builder.Property(p => p.Complemento)
-            .HasMaxLength(200)
+            .HasMaxLength(100)
             .IsRequired(false);
 
         builder.Property(p => p.Bairro)

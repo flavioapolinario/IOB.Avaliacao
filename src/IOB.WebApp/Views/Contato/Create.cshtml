@@ -1,0 +1,25 @@
+﻿@model ContatoModel
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Adicionar Contato</h2>
+    </div>
+
+    <form method="post">
+
+        <partial name="_formContato" for="@Model" />
+
+        <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Salvar</button>
+        <a asp-controller="Contato" asp-action="Index" class="btn btn-lg btn-secondary p-2">Voltar</a>
+    </form>
+
+</div>
+
+
+@*//for front end validations*@
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

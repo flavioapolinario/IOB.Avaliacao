@@ -15,15 +15,13 @@ public class CompromissoMap : IEntityTypeConfiguration<Compromisso>
 
         builder.Property(p => p.Titulo)
             .HasMaxLength(100)
-            .IsRequired()
-            .IsUnicode(false);
+            .IsRequired();
 
         builder.Property(p => p.Descricao)
             .HasMaxLength(300)
             .IsRequired(false);
 
-        builder.Property(p => p.DataCompromisso)
-            .HasMaxLength(200)
+        builder.Property(p => p.DataCompromisso)            
             .IsRequired();
     }
 }

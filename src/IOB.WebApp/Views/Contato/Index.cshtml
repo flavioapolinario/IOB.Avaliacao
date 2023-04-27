@@ -1,0 +1,54 @@
+﻿@using IOB.Application.DTO.Response;
+@model IEnumerable<ContatoResponse>
+
+@{
+    ViewData["Title"] = "Contatos";
+}
+
+@if (TempData["ResultOk"] != null)
+{
+    <h1 class="alert-success">@TempData["ResultOk"]</h1>
+}
+
+<div class="container shadow p-5">
+
+    <h1 class="text-center mb-3">IOB - Contatos</h1>
+
+    <div class="col mb-3">
+        <a asp-controller="Contato" asp-action="Create" class="btn btn-lg btn-primary"><i class="bi bi-file-plus-fill"></i>Adicionar Contato</a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Contato</th>
+                <th scope="col"> Endereço</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="30%">
+                        @item.Nome<br />
+                        Cel: <b>@item.Celular</b> | Tel: <b>@item.Telefone</b> <br />
+                        Email: <b>@item.Email</b>
+                    </td>
+                    <td width="50%">
+                        logradouro: <b>@item.Endereco?.Logradouro</b><br />
+                        Bairro: <b>@item.Endereco?.Bairro</b> | N°: <b>@item.Endereco?.Numero</b> | Compl: <b>@item.Endereco?.Complemento</b><br />
+                        Cidade: <b>@item.Endereco?.Cidade</b> | Uf: <b>@item.Endereco?.Estado</b> <br />
+                        Cep: <b>@item.Endereco?.Cep</b>
+                    </td>
+                    <td>
+                        <div role="group" class="btn-group">
+                            <a asp-controller="Contato" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-lg btn-primary"><i class="bi bi-pencil-square"></i>Editar</a>&nbsp;
+                            <a asp-controller="Contato" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-lg btn-danger"><i class="bi bi-trash-fill"></i>Deletar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

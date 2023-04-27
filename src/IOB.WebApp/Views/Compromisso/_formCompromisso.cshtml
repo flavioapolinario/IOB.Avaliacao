@@ -1,0 +1,25 @@
+﻿@model CompromissoModel
+
+<div class="row">
+    <div class="col">
+        <label asp-for="Titulo">Título</label>
+        <input type="text" class="form-control mb-3" asp-for="Titulo" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Titulo" class=" alert-danger"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label asp-for="Descricao">Descrição</label>        
+        <textarea asp-for="Descricao" class="form-control mb-3" cols="25" rows="3" disabled="@ViewBag.Desabilitar"></textarea>
+        <span asp-validation-for="Descricao" class=" alert-danger"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label asp-for="DataCompromisso">Data</label>
+        <input type="datetime-local" class="form-control" asp-for="DataCompromisso" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="DataCompromisso" class=" alert-danger"></span>
+    </div>
+</div>

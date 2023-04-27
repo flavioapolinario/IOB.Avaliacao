@@ -1,0 +1,26 @@
+﻿@model CompromissoModel
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Remover Compromisso</h2>
+    </div>
+
+    <form method="post" asp-action="DeletarCompromisso">
+
+        <input asp-for="Id" hidden />
+        <partial name="_formCompromisso" for="@Model" />
+
+        <button type="submit" class="btn btn-lg btn-danger p-2"><i class="bi bi-trash-fill"></i>Remover</button>
+        <a asp-controller="Compromisso" asp-action="Index" class="btn btn-lg btn-secondary p-2">Voltar</a>
+    </form>
+
+</div>
+
+
+@*//for front end validations*@
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

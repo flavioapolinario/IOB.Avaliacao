@@ -1,0 +1,36 @@
+﻿@model ContatoModel
+
+<div class="row">
+    <div class="col">
+        <label asp-for="Nome">Nome</label>
+        <input type="text" class="form-control mb-3" asp-for="Nome" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Nome" class=" alert-danger"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label asp-for="Celular">Celular</label>
+        <input type="text" class="form-control mb-3" asp-for="Celular" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Celular" class=" alert-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Telefone">Telefone</label>
+        <input type="text" class="form-control mb-3" asp-for="Telefone">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label asp-for="Email">Email</label>
+        <input type="email" class="form-control mb-3" asp-for="Email" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="Email" class=" alert-danger"></span>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label asp-for="DataNascimento">Data Nascimento</label>
+        <input type="date" class="form-control" asp-for="DataNascimento" disabled="@ViewBag.Desabilitar">
+        <span asp-validation-for="DataNascimento" class=" alert-danger"></span>
+    </div>
+</div>
+
+<partial name="_formEndereco.cshtml" for="Endereco" />
