@@ -32,6 +32,23 @@ namespace IOB.WebApp.Controllers
             return View(contatosResponse);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Index(string filtro)
+        {
+            var contatos = string.IsNullOrEmpty(filtro)
+                ? await _contatoService.ObterPorFiltroAsync(includeProperties: "Endereco")
+                : await _contatoService.ObterPorFiltroAsync(
+                    filter: p => p.Nome.Contains(filtro)
+                    || p.Email.Contains(filtro)
+                    || p.Celular.Contains(filtro)
+                    || p.Endereco.Logradouro.Contains(filtro),
+                    includeProperties: "Endereco");
+
+            var contatosResponse = _mapper.Map<IEnumerable<ContatoResponse>>(contatos);
+
+            return View(contatosResponse);
+        }
+
         public async Task<IActionResult> Create()
         {
             ViewBag.Estados = await ObterEstados();
